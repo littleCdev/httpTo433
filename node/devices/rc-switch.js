@@ -17,7 +17,7 @@ module.exports = function(config,serial) {
         data.name = config.name;
         data.on = config.on;
         data.off = config.off;
-        data.sta = config.state;
+        data.state = config.state;
     }
     if(serial !== undefined)
         Serial = serial;
@@ -69,10 +69,13 @@ module.exports.processRequest = function(req,res){
         res.send("1");
     }else
     if(req.url.endsWith("/switch-state")){
-        if(data.state === "off")
+        if(data.state === "off"){
+           console.log("Status 0 / "+data.name);
 	   res.send("0");
-	else
-           res.send("1");
+	}else{
+           console.log("Status 1 / "+data.name);
+	   res.send("1");
+        }
     }else
     if(req.url.endsWith("/set")){
         console.log(req.body);
@@ -88,11 +91,11 @@ module.exports.processRequest = function(req,res){
 
 module.exports.changeState = function (income) {
     if(income.toLowerCase() === data.on && data.state !== "on"){
-        console.log("changed state to on");
+        console.log("changed state to on for "+data.name);
         data.state = "on";
         module.exports.save();
     }else  if(income.toLowerCase() === data.off && data.state !== "off"){
-        console.log("changed state to off");
+        console.log("changed state to off for "+data.name);
         data.state = "off";
         module.exports.save();
     }
