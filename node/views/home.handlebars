@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="row">
+                    <div class="col s6 left-align">
+                        <h5 class="left">Devices</h5>
+                    </div>
+                    <div class="col s6 right-align">
+                        <a href="/new">
+                            add device
+                            <i class="material-icons">add</i>
+                        </a>
+                    </div>
+                    <div class="col s12">
+                        <div class="collection">
+                            {{#each Devices}}
+                                <a href="/device/{{this}}/" class="collection-item">{{this}}</a>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+</div>

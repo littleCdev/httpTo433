@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="col s12 left">
+                    <p>Current: </p>
+                    <span id="currentComPort">{{CurrentComPort}}</span>
+                </div>
+                <div class="col s12">
+                    <label>Choose your serialport</label>
+                    <select class="browser-default" id="selectNewComPort">
+                        {{#each ComPorts}}
+                            <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col s12 right">
+                    <button class="btn-flat blue right" id="saveComport">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+</div>
+
+
+
