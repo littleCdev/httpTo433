@@ -60,16 +60,19 @@ module.exports.processRequest = function(req,res){
         Serial.write(data.off);
         data.state = "off";
         this.save();
-        res.send("ok");
+        res.send("0");
     }else
     if(req.url.endsWith("/switch-on")){
         Serial.write(data.on);
         data.state = "on";
         this.save();
-        res.send("ok");
+        res.send("1");
     }else
     if(req.url.endsWith("/switch-state")){
-        res.send(data.state);
+        if(data.state === "off")
+	   res.send("0");
+	else
+           res.send("1");
     }else
     if(req.url.endsWith("/set")){
         console.log(req.body);
