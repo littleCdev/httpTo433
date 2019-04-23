@@ -35,9 +35,9 @@ $(function () {
     };
 
     var deviceName = $("#devicename").val();
-    $("#urlstate").val(location.host+"/device/"+deviceName+"/switch-state");
-    $("#urloff").val(location.host+"/device/"+deviceName+"/switch-off");
-    $("#urlon").val(location.host+"/device/"+deviceName+"/switch-on");
+    $("#urlstate").val(location.protocol+"//"+location.host+"/device/"+deviceName+"/switch-state");
+    $("#urloff").val(location.protocol+"//"+location.host+"/device/"+deviceName+"/switch-off");
+    $("#urlon").val(location.protocol+"//"+location.host+"/device/"+deviceName+"/switch-on");
 
 
     $(".clipboard").on("click",function (e) {
